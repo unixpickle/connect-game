@@ -8,6 +8,27 @@ class BoardState {
     }
   }
 
+  hasMoves() {
+    for (let i = 0; i < this.rows; ++i) {
+      for (let j = 0; j < this.cols; ++j) {
+        if (!this.get(i, j)) {
+          continue;
+        }
+        for (let i1 = 0; i1 < this.rows; ++i1) {
+          for (let j1 = 0; j1 < this.cols; ++j1) {
+            if (i1 == i && j1 == j) {
+              continue;
+            }
+            if (this.searchPath(i, j, i1, j1)) {
+              return true;
+            }
+          }
+        }
+      }
+    }
+    return false;
+  }
+
   searchPath(row1, col1, row2, col2) {
     if (this.get(row1, col1) != this.get(row2, col2)) {
       return false;
@@ -49,14 +70,16 @@ class BoardState {
   }
 
   randomize() {
-    for (let i = 0; i < this.cells.length; ++i) {
-      if (Math.random() < 0.3) {
-        this.cells[i] = null;
-      } else {
-        const choices = ['A', 'B', 'C', 'D', 'E', 'F'];
-        this.cells[i] = choices[Math.floor(Math.random() * (choices.length - 1e-4))];
+    do {
+      for (let i = 0; i < this.cells.length; ++i) {
+        if (Math.random() < 0.3) {
+          this.cells[i] = null;
+        } else {
+          const choices = ['A', 'B', 'C', 'D', 'E', 'F'];
+          this.cells[i] = choices[Math.floor(Math.random() * (choices.length - 1e-4))];
+        }
       }
-    }
+    } while (!this.hasMoves());
   }
 
   get(row, col) {
