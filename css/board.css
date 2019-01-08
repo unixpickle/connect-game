@@ -34,5 +34,5 @@ body {
 }
 
 .block-selected {
-  background-color: green;
+  border: 2px solid black;
 }

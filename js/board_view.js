@@ -1,3 +1,12 @@
+COLORS = {
+  'A': '#65bcd4',
+  'B': '#9b59b6',
+  'C': '#e36a8f',
+  'D': '#f19e4d',
+  'E': '#33be6e',
+  'F': '#814938',
+};
+
 class BoardView {
   constructor(state) {
     this.state = state;
@@ -28,6 +37,7 @@ class BoardView {
           if (selected) {
             cell.className += ' block-selected'
           }
+          cell.style.backgroundColor = COLORS[this.state.get(i, j)];
           cell.addEventListener('click', () => this.select(i, j));
         }
         cell.style.left = (cellWidth * j).toFixed(2) + 'px';
