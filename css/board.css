@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+}
+
+#board {
+  position: absolute;
+  border: 1px solid black;
+  width: 480px;
+  height: 320px;
+  top: calc(50% - 160px);
+  left: calc(50% - 240px);
+}
+
+#blocks, #connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.block {
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid white;
+  background-color: #d5d5d5;
+  text-align: center;
+}
+
+.block-empty {
+  background-color: white;
+}
+
+.block-selected {
+  background-color: green;
+}
