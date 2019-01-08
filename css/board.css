@@ -11,7 +11,7 @@ body {
   left: calc(50% - 240px);
 }
 
-#blocks, #connections {
+#blocks {
   position: absolute;
   top: 0;
   left: 0;
@@ -25,10 +25,12 @@ body {
   border: 2px solid white;
   background-color: #d5d5d5;
   text-align: center;
+  cursor: pointer;
 }
 
 .block-empty {
   background-color: white;
+  cursor: default;
 }
 
 .block-selected {
