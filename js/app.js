@@ -13,6 +13,7 @@ class App {
         }
       }
     };
+    window.addEventListener('resize', () => this.board.update());
   }
 }
 

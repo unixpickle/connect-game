@@ -1,14 +1,27 @@
 body {
   font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
 }
 
 #board {
   position: absolute;
-  border: 1px solid black;
-  width: 480px;
-  height: 320px;
-  top: calc(50% - 160px);
-  left: calc(50% - 240px);
+  background-color: white;
+
+  width: 720px;
+  height: 480px;
+  top: calc(50% - 240px);
+  left: calc(50% - 360px);
+}
+
+@media (max-width: 725px), (max-height: 485px) {
+  #board {
+    width: 480px;
+    height: 320px;
+    top: calc(50% - 160px);
+    left: calc(50% - 240px);
+  }
 }
 
 #blocks {
